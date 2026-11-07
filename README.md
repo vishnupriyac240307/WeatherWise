@@ -1,103 +1,203 @@
-# WeatherWise — Weather Analytics Dashboard
+# 🌦️ WeatherWise – Weather Analytics Dashboard
 
-WeatherWise is an intermediate-level Python data analytics mini-project. It combines live weather conditions, short-term forecasts, recent observed weather, interactive charts, simple analytics and CSV exports in a dark Streamlit dashboard.
+An interactive weather analytics dashboard built using **Python, Streamlit, Pandas, and Plotly**. WeatherWise provides current weather conditions, upcoming forecasts, historical weather analysis, and interactive visualizations for locations around the world.
 
-## Features
+Powered by the **Open-Meteo API**, this project transforms weather data into meaningful insights through data analytics.
 
-- Search cities and towns using Open-Meteo geocoding.
-- Current conditions: temperature, feels-like temperature, wind speed and precipitation.
-- 1–16 day forecast with daily high/low temperatures, rainfall and precipitation probability data.
-- Recent historical observations for 7, 14, 30 or 90 days.
-- Temperature and rainfall KPIs plus readable rainfall insight.
-- Interactive Plotly charts.
-- CSV downloads for historical and forecast data.
-- Celsius/Fahrenheit display conversion.
-- Automated tests for analytics and API request construction.
+## 🚀 Live Demo
 
-## Technology
+🌐 **Live Application:** https://weatherwise-dashboard.streamlit.app/
 
-Python 3.10+, Streamlit, Pandas, Plotly, Requests, Pytest, Open-Meteo Forecast/Geocoding/Archive APIs.
+💻 **GitHub Repository:** https://github.com/vishnupriyac240307/WeatherWise
 
-## Requirements
+## 📸 Dashboard Preview
 
-- Python 3.10 or newer
-- Internet connection
-- No API key required (Open-Meteo endpoints used by this project are public)
+<!-- Add your dashboard screenshot here -->
+<!-- Example: ![WeatherWise Dashboard](screenshots/dashboard.png) -->
 
-## Run locally
+## ✨ Features
 
-```bash
-# 1. Extract the project and enter its directory
-cd WeatherWise
+- 🌍 **City Search:** Search for cities and towns around the world.
+- 🌡️ **Current Weather:** View current temperature, feels-like temperature, wind speed, and precipitation.
+- 📅 **Weather Forecast:** Explore weather forecasts for 1–16 days.
+- 📊 **Historical Weather Analytics:** Analyze historical observations for 7, 14, 30, or 90 days.
+- 📈 **Data Visualization:** Explore temperature and precipitation trends using interactive charts.
+- 🧮 **Weather Insights:** Calculate average, maximum, and minimum temperatures and total rainfall.
+- 🌡️ **Temperature Conversion:** Switch between Celsius and Fahrenheit.
+- 📥 **CSV Export:** Download historical and forecast datasets.
+- 🌙 **Dark Dashboard:** Clean and interactive user interface.
 
-# 2. Create and activate a virtual environment
-python3 -m venv .venv
-source .venv/bin/activate       # macOS/Linux
-# .venv\Scripts\activate        # Windows PowerShell
+## 🛠️ Tech Stack
 
-# 3. Install dependencies
-python -m pip install --upgrade pip
-pip install -r requirements.txt
+| Technology | Purpose |
+|---|---|
+| Python | Core programming language |
+| Streamlit | Interactive dashboard development |
+| Pandas | Data processing and analytics |
+| Plotly | Interactive data visualization |
+| Requests | API integration |
+| Open-Meteo API | Weather data provider |
+| Pytest | Automated testing |
 
-# 4. Run the app
-streamlit run app.py
-```
+## 📊 Dashboard Modules
 
-Streamlit prints a local URL, normally http://localhost:8501.
+### 1. Current Weather
+Displays current weather conditions for the selected location, including temperature, apparent temperature, wind speed, and precipitation.
 
-## Run tests
+### 2. Weather Forecast
+Provides upcoming weather information with daily maximum and minimum temperatures and precipitation details.
 
-From the project root with the virtual environment activated:
+### 3. Historical Weather Analytics
+Analyzes historical weather observations and calculates:
+- Average temperature
+- Maximum temperature
+- Minimum temperature
+- Total precipitation
 
-```bash
-pytest -q
-```
+### 4. Interactive Data Visualization
+Uses Plotly charts to visualize weather patterns, temperature variations, and precipitation trends.
 
-The test suite covers sorting and validation, temperature/rainfall metrics, precipitation insights, monthly aggregation, and API client request construction. API tests are mocked and do not require internet access.
+### 5. Data Export
+Allows users to download historical and forecast weather datasets in CSV format for further analysis.
 
-## How it works
-
-1. The city search calls Open-Meteo Geocoding and selects the first matching result.
-2. Coordinates are sent to the Forecast API for current conditions and forecast data.
-3. Coordinates and a date range are sent to the Archive API for recent historical daily observations.
-4. Pandas transforms the returned daily series into KPIs and insights.
-5. Plotly renders interactive charts; Streamlit provides filters and CSV exports.
-
-## Project structure
+## 🏗️ Project Structure
 
 ```text
 WeatherWise/
+│
 ├── app.py
+│
 ├── weatherwise/
 │   ├── __init__.py
 │   ├── api.py
 │   └── analytics.py
+│
 ├── tests/
-│   ├── test_analytics.py
-│   └── test_api.py
+│   ├── test_api.py
+│   └── test_analytics.py
+│
 ├── .streamlit/
 │   └── config.toml
+│
 ├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
-## Data and limitations
+## ⚙️ Installation and Setup
 
-- Weather data is provided by Open-Meteo. Consult its documentation and attribution/licensing terms before public or commercial redistribution.
-- Archive data availability can vary by location and date. A provider/API error is displayed rather than fabricated data.
-- The historical window is recent daily observations, not a long-term climate-normal dataset.
-- This is an educational analytics application, not an emergency alert system. Forecasts are estimates and should not replace official warnings.
-- Fahrenheit conversion applies to displayed temperatures; API data and exported source values remain in Celsius.
+### Prerequisites
 
-## Portfolio extensions
+- Python 3.10 or higher
+- Git
+- Internet connection
 
-- Add saved locations and compare cities.
-- Add seasonal and year-over-year climatology using longer historical ranges.
-- Add anomaly detection for unusually hot/cold days.
-- Add user accounts and saved dashboards.
-- Deploy with Streamlit Community Cloud.
+### Step 1: Clone the Repository
 
-## Author
+```bash
+git clone https://github.com/vishnupriyac240307/WeatherWise.git
+```
 
-Add your name, GitHub profile and project demo link here before publishing.
+### Step 2: Navigate to the Project Directory
+
+```bash
+cd WeatherWise
+```
+
+### Step 3: Create a Virtual Environment
+
+**macOS / Linux:**
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+**Windows:**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### Step 4: Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Step 5: Run the Application
+
+```bash
+streamlit run app.py
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:8501
+```
+
+## 🧪 Running Tests
+
+Run the automated test suite:
+
+```bash
+pytest -q
+```
+
+The project includes tests for API request construction and weather analytics functions using mocked API responses.
+
+**Latest test result:** 8 tests passed.
+
+## 🌐 API Integration
+
+WeatherWise uses the free public APIs provided by **Open-Meteo**.
+
+| API | Purpose |
+|---|---|
+| Geocoding API | Search locations and retrieve coordinates |
+| Forecast API | Retrieve current weather and forecast data |
+| Archive API | Retrieve historical weather observations |
+
+API Documentation: https://open-meteo.com/
+
+No API key is required for the public endpoints used in this project. An active internet connection is required to retrieve weather data.
+
+## ☁️ Deployment
+
+The application is deployed using **Streamlit Community Cloud**.
+
+🔗 https://weatherwise-dashboard.streamlit.app/
+
+## ⚠️ Limitations
+
+- Weather information depends on the availability and accuracy of the Open-Meteo data provider.
+- Historical data availability may vary depending on location and date.
+- Historical analysis focuses on recent daily observations, not long-term climate normals.
+- The application is intended for educational and analytical purposes, not emergency weather warnings.
+- This project performs weather data analytics; it does not generate independent machine learning weather predictions.
+
+## 🔮 Future Enhancements
+
+- Multiple-city weather comparison.
+- Weather anomaly detection.
+- Long-term climate trend analysis.
+- Seasonal weather pattern analysis.
+- Saved locations and personalized dashboards.
+- Machine learning-based weather analytics.
+
+## 👩‍💻 Author
+
+**Vishnu Priya**
+
+B.Sc. Computer Science with Data Analytics
+
+- **GitHub:** https://github.com/vishnupriyac240307
+- **Live Project:** https://weatherwise-dashboard.streamlit.app/
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
+
+**Built with Python, Data Analytics, and curiosity about the weather. 💙**
